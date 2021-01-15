@@ -68,6 +68,7 @@ public class BaseGeneratorImpl implements Generator {
     VM_TARGET_EXT = vmTargetExt;
   }
 
+  @Override
   public PackageConfigTypes getPackageConfigTypes() {
     return packageConfigTypes;
   }
@@ -81,6 +82,7 @@ public class BaseGeneratorImpl implements Generator {
    *
    * @param context
    */
+  @Override
   public void defaultGenerator(GeneratorContext context, Map<String, String> allPackageNameMap) {
     velocityContext = new VelocityContext();
     Properties properties = initDefaultProperties();
@@ -94,6 +96,7 @@ public class BaseGeneratorImpl implements Generator {
    *
    * @param context
    */
+  @Override
   public void pluginGenerator(GeneratorContext context, Map<String, String> allPackageNameMap) {
     velocityContext = new VelocityContext();
     Properties properties = initPluginProperties();

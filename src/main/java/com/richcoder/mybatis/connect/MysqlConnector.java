@@ -24,6 +24,7 @@ public class MysqlConnector implements Connector {
     this.properties = properties;
   }
 
+  @Override
   public Map<String, String> mapColumnNameType(String tableName) {
     Map<String, String> colMap = new LinkedHashMap<>();
     Connection connection = null;
@@ -51,6 +52,7 @@ public class MysqlConnector implements Connector {
     return colMap;
   }
 
+  @Override
   public Map<String, String> mapColumnRemark(String tableName) {
     Map<String, String> colMap = new LinkedHashMap<>();
     Connection connection = null;
@@ -76,6 +78,7 @@ public class MysqlConnector implements Connector {
     return colMap;
   }
 
+  @Override
   public List<String> listAllIndex(String tableName) {
     List<String> indexes = Lists.newArrayList();
     Connection connection = null;
@@ -100,6 +103,7 @@ public class MysqlConnector implements Connector {
     return indexes;
   }
 
+  @Override
   public Map<String, String> getPrimaryKey(String tableName) {
     Map<String, String> map = new HashMap<>();
     Connection connection = null;
