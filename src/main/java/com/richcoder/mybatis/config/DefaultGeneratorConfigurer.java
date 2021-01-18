@@ -45,6 +45,7 @@ public class DefaultGeneratorConfigurer implements GeneratorConfigurer {
     return fileNames;
   }
 
+  @Override
   public Properties getProperties() {
     if (null == properties) {
       loadProperties();
@@ -52,6 +53,7 @@ public class DefaultGeneratorConfigurer implements GeneratorConfigurer {
     return properties;
   }
 
+  @Override
   public void initConfigParams() {
     initPackage();
     initProjectName();

@@ -5,12 +5,12 @@
 
   <bean class="com.richcoder.mybatis.config.PackageConfigTypes" id="modelPackageConfigTypes">
     <constructor-arg name="type" value="MODEL" type="java.lang.String"/>
-    <constructor-arg name="packageConfigTypeSet" type="java.util.Set">
+    <constructor-arg name="packageConfigTypeSet">
       <set>
         <bean class="com.richcoder.mybatis.config.PackageConfigType">
           <property name="aliasType" value="poPackage"/>
           <property name="targetDir" value="/po"/>
-          <property name="fileNameSuffix" value="PO.java"/>
+          <property name="fileNameSuffix" value="Entity.java"/>
           <property name="template" value="domain_po.vm"/>
         </bean>
         <bean class="com.richcoder.mybatis.config.PackageConfigType">
