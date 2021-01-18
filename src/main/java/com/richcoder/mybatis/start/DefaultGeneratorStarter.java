@@ -117,7 +117,7 @@ public class DefaultGeneratorStarter implements GeneratorStarter {
       LOGGER.info("**********代码生成工具,开始自动生成代码>>>{}", layerConfig);
       Set<PackageConfigTypes> packageConfigTypesSet = new HashSet<>();
       for (Generator generator : generatorSet) {
-        if (typeSet.contains(generator.getPackageConfigTypes().getType().key)) {
+        if (typeSet.contains(generator.getPackageConfigTypes().getType())) {
           packageConfigTypesSet.add(generator.getPackageConfigTypes());
         }
       }

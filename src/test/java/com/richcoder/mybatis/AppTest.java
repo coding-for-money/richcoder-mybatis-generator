@@ -1,3 +1,5 @@
+package com.richcoder.mybatis;
+
 import com.richcoder.mybatis.generator.base.GeneratorFactoryImpl;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;

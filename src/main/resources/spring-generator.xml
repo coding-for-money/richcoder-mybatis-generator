@@ -4,8 +4,8 @@
   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
   <bean class="com.richcoder.mybatis.config.PackageConfigTypes" id="modelPackageConfigTypes">
-    <constructor-arg name="type" value="MODEL"/>
-    <constructor-arg name="packageConfigTypeSet">
+    <constructor-arg name="type" value="MODEL" type="java.lang.String"/>
+    <constructor-arg name="packageConfigTypeSet" type="java.util.Set">
       <set>
         <bean class="com.richcoder.mybatis.config.PackageConfigType">
           <property name="aliasType" value="poPackage"/>
@@ -95,7 +95,8 @@
   <bean class="com.richcoder.mybatis.generator.impl.MapperGeneratorImpl" id="mapperGenerator">
     <property name="packageConfigTypes" ref="mapperPackageConfigTypes"/>
   </bean>
-  <bean class="com.richcoder.mybatis.generator.impl.MapperConfigGeneratorImpl" id="mapperConfigGenerator">
+  <bean class="com.richcoder.mybatis.generator.impl.MapperConfigGeneratorImpl"
+    id="mapperConfigGenerator">
     <property name="packageConfigTypes" ref="mapperConfigPackageConfigTypes"/>
   </bean>
   <bean class="com.richcoder.mybatis.generator.impl.ResultGeneratorImpl" id="resultGenerator">

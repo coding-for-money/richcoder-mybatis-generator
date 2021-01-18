@@ -26,7 +26,7 @@ mapper（mybatis）、service、controller，项目思路来源于mybatis－gene
 
 ```java
  
-  public class AppTest {
+  public class com.richcoder.mybatis.AppTest {
 
     private static ApplicationContext context;
 
@@ -187,10 +187,10 @@ mapper（mybatis）、service、controller，项目思路来源于mybatis－gene
 ```properties
 
 ##mysql连接配置
-jdbc.driverClassName=com.mysql.jdbc.Driver
-jdbc.url=jdbc:mysql://127.0.0.1:3306/shiro
+jdbc.driverClassName=com.mysql.cj.jdbc.Driver
+jdbc.url=jdbc:mysql://127.0.0.1:3306/finance_voucher
 jdbc.username=root
-jdbc.password=root
+jdbc.password=password
 
 generator.authorName=richcoder
 

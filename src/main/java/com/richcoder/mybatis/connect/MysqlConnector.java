@@ -1,8 +1,8 @@
 package com.richcoder.mybatis.connect;
 
 import com.google.common.collect.Lists;
+import com.mysql.cj.jdbc.JdbcConnection;
 import com.richcoder.mybatis.utils.PropertiesUtils;
-import com.mysql.jdbc.JDBC4Connection;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
@@ -135,10 +135,10 @@ public class MysqlConnector implements Connector {
     Connection connection = null;
     try {
       connection = getConnection();
-      if (connection instanceof JDBC4Connection) {
-        JDBC4Connection jdbc4Connection = (JDBC4Connection) connection;
+      if (connection instanceof JdbcConnection) {
+        JdbcConnection jdbcConnection = (JdbcConnection) connection;
         ResultSet resultSet = getDatabaseMetaData(connection)
-            .getTables(null, jdbc4Connection.getCatalog(), tableName, null);
+            .getTables(null, jdbcConnection.getCatalog(), tableName, null);
         while (resultSet.next()) {
           remark = resultSet.getString("REMARKS");
         }

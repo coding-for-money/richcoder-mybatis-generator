@@ -1,5 +1,6 @@
 package com.richcoder.mybatis.utils;
 
+import com.richcoder.mybatis.config.ConfigType;
 import com.richcoder.mybatis.config.PackageConfigType;
 import com.richcoder.mybatis.config.PackageConfigTypes;
 import java.io.BufferedWriter;
@@ -114,7 +115,7 @@ public class GeneratorFileUtils {
       Set<PackageConfigTypes> packageConfigTypesSet) {
     Map<String, String> typeAliasesMap = new TreeMap<>();
     for (PackageConfigTypes packageConfigTypes : packageConfigTypesSet) {
-      if (PackageConfigTypes.ConfigType.MODEL.equals(packageConfigTypes.getType())) {
+      if (ConfigType.MODEL.equals(packageConfigTypes.getType())) {
         for (PackageConfigType packageConfigType : packageConfigTypes.getPackageConfigTypeSet()) {
           String fileNameSuffix = packageConfigType.getFileNameSuffix();
           if (fileNameSuffix.endsWith(".java")) {
@@ -140,7 +141,7 @@ public class GeneratorFileUtils {
       Set<PackageConfigTypes> packageConfigTypesSet) {
     Map<String, String> mappersMap = new TreeMap<>();
     for (PackageConfigTypes packageConfigTypes : packageConfigTypesSet) {
-      if (PackageConfigTypes.ConfigType.MAPPER.equals(packageConfigTypes.getType())) {
+      if (ConfigType.MAPPER.equals(packageConfigTypes.getType())) {
         for (PackageConfigType packageConfigType : packageConfigTypes.getPackageConfigTypeSet()) {
           String fileNameSuffix = packageConfigType.getFileNameSuffix();
           if (fileNameSuffix.endsWith(".xml")) {

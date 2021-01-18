@@ -2,6 +2,7 @@ package com.richcoder.mybatis.generator.base;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import com.richcoder.mybatis.config.ConfigType;
 import com.richcoder.mybatis.config.PackageConfigType;
 import com.richcoder.mybatis.config.PackageConfigTypes;
 import com.richcoder.mybatis.generator.Generator;
@@ -175,6 +176,7 @@ public class BaseGeneratorImpl implements Generator {
     File templateFile = new File(fileDir);
     if (templateFile.exists()) {
       FileFilter fileFilter = new FileFilter() {
+        @Override
         public boolean accept(File file) {
           return file.getName().endsWith(VM_TARGET_EXT);
         }
@@ -262,8 +264,8 @@ public class BaseGeneratorImpl implements Generator {
       String fileName;
       context.getPackageNamesMap().putAll(allPackageNameMap);
 
-      if (PackageConfigTypes.ConfigType.RESULT.equals(this.packageConfigTypes.getType())
-          || PackageConfigTypes.ConfigType.MAPPER_CONFIG
+      if (ConfigType.RESULT.equals(this.packageConfigTypes.getType())
+          || ConfigType.MAPPER_CONFIG
           .equals(this.packageConfigTypes.getType())) {
         fileName = GeneratorFileUtils.getPackageDirectory(targetDir, properties) + fileNameSuffix;
       } else {

@@ -10,7 +10,7 @@ public class PackageConfigTypes {
   /**
    * 生成文件类型
    */
-  private ConfigType type;
+  private String type;
 
   /**
    * 包类型配置
@@ -20,16 +20,16 @@ public class PackageConfigTypes {
   public PackageConfigTypes() {
   }
 
-  public PackageConfigTypes(ConfigType type, Set<PackageConfigType> packageConfigTypeSet) {
+  public PackageConfigTypes(String type, Set<PackageConfigType> packageConfigTypeSet) {
     this.type = type;
     this.packageConfigTypeSet = packageConfigTypeSet;
   }
 
-  public ConfigType getType() {
+  public String getType() {
     return type;
   }
 
-  public void setType(ConfigType type) {
+  public void setType(String type) {
     this.type = type;
   }
 
@@ -41,23 +41,5 @@ public class PackageConfigTypes {
     this.packageConfigTypeSet = packageConfigTypeSet;
   }
 
-  public enum ConfigType {
-    MODEL("model"),
 
-    MAPPER("mapper"),
-
-    MAPPER_CONFIG("mapperConfig"),
-
-    RESULT("result"),
-
-    SERVICE("service"),
-
-    CONTROLLER("controller");
-
-    public String key;
-
-    ConfigType(String key) {
-      this.key = key;
-    }
-  }
 }

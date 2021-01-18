@@ -49,6 +49,7 @@ public class MybatisGeneratorPlugin extends AbstractMojo {
     }
   }
 
+  @Override
   public void execute() throws MojoExecutionException, MojoFailureException {
     GeneratorFactoryImpl generatorFactory = (GeneratorFactoryImpl) context
         .getBean("generatorFactory");
