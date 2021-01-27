@@ -7,39 +7,39 @@ import java.util.Set;
  */
 public class PackageConfigTypes {
 
-  /**
-   * 生成文件类型
-   */
-  private String type;
+    /**
+     * 生成文件类型
+     */
+    private String type;
 
-  /**
-   * 包类型配置
-   */
-  private Set<PackageConfigType> packageConfigTypeSet;
+    /**
+     * 包类型配置
+     */
+    private Set<PackageConfigType> packageConfigTypeSet;
 
-  public PackageConfigTypes() {
-  }
+    public PackageConfigTypes() {
+    }
 
-  public PackageConfigTypes(String type, Set<PackageConfigType> packageConfigTypeSet) {
-    this.type = type;
-    this.packageConfigTypeSet = packageConfigTypeSet;
-  }
+    public PackageConfigTypes(String type, Set<PackageConfigType> packageConfigTypeSet) {
+        this.type = type;
+        this.packageConfigTypeSet = packageConfigTypeSet;
+    }
 
-  public String getType() {
-    return type;
-  }
+    public String getType() {
+        return type;
+    }
 
-  public void setType(String type) {
-    this.type = type;
-  }
+    public void setType(String type) {
+        this.type = type;
+    }
 
-  public Set<PackageConfigType> getPackageConfigTypeSet() {
-    return packageConfigTypeSet;
-  }
+    public Set<PackageConfigType> getPackageConfigTypeSet() {
+        return packageConfigTypeSet;
+    }
 
-  public void setPackageConfigTypeSet(Set<PackageConfigType> packageConfigTypeSet) {
-    this.packageConfigTypeSet = packageConfigTypeSet;
-  }
+    public void setPackageConfigTypeSet(Set<PackageConfigType> packageConfigTypeSet) {
+        this.packageConfigTypeSet = packageConfigTypeSet;
+    }
 
 
 }

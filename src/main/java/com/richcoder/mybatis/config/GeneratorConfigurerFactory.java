@@ -5,21 +5,21 @@ package com.richcoder.mybatis.config;
  */
 public class GeneratorConfigurerFactory {
 
-  /**
-   * 自动化生成代码配置器
-   */
-  private static GeneratorConfigurer generatorConfigurer;
+    /**
+     * 自动化生成代码配置器
+     */
+    private static GeneratorConfigurer generatorConfigurer;
 
-  /**
-   * 获取配置
-   *
-   * @return
-   */
-  public synchronized static GeneratorConfigurer getGeneratorConfigurer() {
-    if (null == generatorConfigurer) {
-      generatorConfigurer = new DefaultGeneratorConfigurer();
+    /**
+     * 获取配置
+     *
+     * @return
+     */
+    public synchronized static GeneratorConfigurer getGeneratorConfigurer() {
+        if (null == generatorConfigurer) {
+            generatorConfigurer = new DefaultGeneratorConfigurer();
+        }
+        return generatorConfigurer;
     }
-    return generatorConfigurer;
-  }
 
 }

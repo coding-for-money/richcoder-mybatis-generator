@@ -16,6 +16,6 @@ public enum ConfigType {
     public String key;
 
     ConfigType(String key) {
-      this.key = key;
+        this.key = key;
     }
-  }
+}

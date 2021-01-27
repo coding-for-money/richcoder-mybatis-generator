@@ -5,6 +5,7 @@ import java.util.Map;
 
 /**
  * 功能描述：连接数据库接口
+ * @author lilinjun
  */
 public interface Connector {
 
