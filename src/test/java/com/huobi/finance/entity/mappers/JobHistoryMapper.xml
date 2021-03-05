@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.huobi.finance.entity.dao.JobHistoryMapper">
+
+  <resultMap id="BaseResultMap" type="JobHistoryEntity">
+              <result column="f_id" property="id"/>
+        <result column="f_task_name" property="taskName"/>
+        <result column="f_job_detail" property="jobDetail"/>
+        <result column="f_job_state" property="jobState"/>
+        <result column="f_created_at" property="createdAt"/>
+  </resultMap>
+
+  <sql id="Table_Name">
+      t_job_history
+  </sql>
+
+  <sql id="Base_Column_List">
+      f_id,f_task_name,f_job_detail,f_job_state,f_created_at
+  </sql>
+
+  <sql id="Query_Where_Column_List">
+    <trim prefix="WHERE" prefixOverrides="AND|OR">
+                    <if test="id != null">
+				AND f_id = #{id}
+			</if>
+            <if test="taskName != null and '' != taskName">
+				AND f_task_name = #{taskName}
+			</if>
+            <if test="jobDetail != null and '' != jobDetail">
+				AND f_job_detail = #{jobDetail}
+			</if>
+            <if test="jobState != null and '' != jobState">
+				AND f_job_state = #{jobState}
+			</if>
+            <if test="createdAt != null and '' != createdAt">
+				AND <![CDATA[f_created_at >= #{dynamicFields_startTime}]]>
+			</if>
+            <if test="createdAt != null and '' != createdAt">
+				AND <![CDATA[f_created_at < #{dynamicFields_endTime}]]>
+			</if>
+    </trim>
+  </sql>
+
+  <sql id="PrimaryKeyQuery_Where_Column_List">
+    WHERE f_id = #{id}
+  </sql>
+
+  <sql id="Order_Column_List">
+
+  </sql>
+
+  <sql id="Query_Page_Limit">
+
+  </sql>
+
+  <insert id="insertSelective" parameterType="JobHistoryEntity"
+          useGeneratedKeys="true" keyProperty="id">
+    INSERT INTO
+    <include refid="Table_Name"/>
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+                    <if test="id != null">
+				f_id,
+			</if>
+            <if test="taskName != null">
+				f_task_name,
+			</if>
+            <if test="jobDetail != null">
+				f_job_detail,
+			</if>
+            <if test="jobState != null">
+				f_job_state,
+			</if>
+            <if test="createdAt != null">
+				f_created_at,
+			</if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+                    <if test="id != null">
+				#{id},
+			</if>
+            <if test="taskName != null">
+				#{taskName},
+			</if>
+            <if test="jobDetail != null">
+				#{jobDetail},
+			</if>
+            <if test="jobState != null">
+				#{jobState},
+			</if>
+            <if test="createdAt != null">
+				#{createdAt},
+			</if>
+    </trim>
+  </insert>
+
+  <update id="updateByPrimaryKeySelective" parameterType="JobHistoryEntity">
+    UPDATE
+    <include refid="Table_Name"/>
+    <set>
+                    <if test="taskName != null">
+				f_task_name = #{taskName},
+			</if>
+            <if test="jobDetail != null">
+				f_job_detail = #{jobDetail},
+			</if>
+            <if test="jobState != null">
+				f_job_state = #{jobState},
+			</if>
+            <if test="createdAt != null">
+				f_created_at = #{createdAt},
+			</if>
+    </set>
+    <include refid="PrimaryKeyQuery_Where_Column_List"/>
+  </update>
+
+  <select id="selectByPrimaryKeySelective" resultMap="BaseResultMap"
+          parameterType="JobHistoryEntity">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM
+    <include refid="Table_Name"/>
+    <include refid="PrimaryKeyQuery_Where_Column_List"/>
+  </select>
+
+  <select id="queryList" resultMap="BaseResultMap"
+          parameterType="JobHistoryEntity">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM
+    <include refid="Table_Name"/>
+    <include refid="Query_Where_Column_List"/>
+    <include refid="Order_Column_List"/>
+  </select>
+
+  <select id="listPageSelective" resultMap="BaseResultMap"
+          parameterType="JobHistoryEntity">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM
+    <include refid="Table_Name"/>
+    <include refid="Query_Where_Column_List"/>
+    <include refid="Order_Column_List"/>
+    <include refid="Query_Page_Limit"/>
+  </select>
+
+  <select id="countSelective" resultType="java.lang.Integer"
+          parameterType="JobHistoryEntity">
+    SELECT
+    COUNT(*)
+    FROM
+    <include refid="Table_Name"/>
+    <include refid="Query_Where_Column_List"/>
+  </select>
+
+  <delete id="deleteByPrimaryKeySelective" parameterType="JobHistoryEntity">
+    DELETE FROM
+    <include refid="Table_Name"/>
+    <include refid="PrimaryKeyQuery_Where_Column_List"/>
+  </delete>
+
+</mapper>

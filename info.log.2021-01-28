@@ -1,0 +1,29 @@
+2021-01-28 16:20:14-[com.richcoder.mybatis.config.DefaultGeneratorConfigurer] [INFO] 加载配置文件:/Users/lilinjun/code/richcoder/richcoder-mybatis-generator/src/main/resources/config-generator.properties
+2021-01-28 16:20:14-[com.richcoder.mybatis.start.DefaultGeneratorStarter] [INFO] **********代码生成工具,开始自动生成代码**********
+2021-01-28 16:20:14-[com.richcoder.mybatis.start.DefaultGeneratorStarter] [INFO] **********包名映射[键:null , 值:com.huobi.finance.entity.mappers]
+2021-01-28 16:20:14-[com.richcoder.mybatis.start.DefaultGeneratorStarter] [INFO] **********包名映射[键:servicePackage , 值:com.huobi.finance.entity.service]
+2021-01-28 16:20:14-[com.richcoder.mybatis.start.DefaultGeneratorStarter] [INFO] **********包名映射[键:modelPackage , 值:com.huobi.finance.entity.model]
+2021-01-28 16:20:14-[com.richcoder.mybatis.start.DefaultGeneratorStarter] [INFO] **********包名映射[键:serviceImplPackage , 值:com.huobi.finance.entity.service.impl]
+2021-01-28 16:20:14-[com.richcoder.mybatis.start.DefaultGeneratorStarter] [INFO] **********包名映射[键:poPackage , 值:com.huobi.finance.entity.po]
+2021-01-28 16:20:14-[com.richcoder.mybatis.start.DefaultGeneratorStarter] [INFO] **********包名映射[键:resultPackage , 值:com.huobi.finance.entity.service.module]
+2021-01-28 16:20:14-[com.richcoder.mybatis.start.DefaultGeneratorStarter] [INFO] **********包名映射[键:mapperPackage , 值:com.huobi.finance.entity.dao]
+2021-01-28 16:20:14-[com.richcoder.mybatis.start.DefaultGeneratorStarter] [INFO] **********包名对应文件后缀映射[键:serviceImplPackageFileSuffix , 值:ServiceImpl]
+2021-01-28 16:20:14-[com.richcoder.mybatis.start.DefaultGeneratorStarter] [INFO] **********包名对应文件后缀映射[键:mapperPackageFileSuffix , 值:Mapper]
+2021-01-28 16:20:14-[com.richcoder.mybatis.start.DefaultGeneratorStarter] [INFO] **********包名对应文件后缀映射[键:resultPackageFileSuffix , 值:Result]
+2021-01-28 16:20:14-[com.richcoder.mybatis.start.DefaultGeneratorStarter] [INFO] **********包名对应文件后缀映射[键:modelPackageFileSuffix , 值:Model]
+2021-01-28 16:20:14-[com.richcoder.mybatis.start.DefaultGeneratorStarter] [INFO] **********包名对应文件后缀映射[键:servicePackageFileSuffix , 值:Service]
+2021-01-28 16:20:14-[com.richcoder.mybatis.start.DefaultGeneratorStarter] [INFO] **********包名对应文件后缀映射[键:nullFileSuffix , 值:Mapper]
+2021-01-28 16:20:14-[com.richcoder.mybatis.start.DefaultGeneratorStarter] [INFO] **********包名对应文件后缀映射[键:poPackageFileSuffix , 值:Entity]
+2021-01-28 16:20:14-[com.richcoder.mybatis.start.DefaultGeneratorStarter] [INFO] **********代码生成工具,开始自动生成代码>>>t_batch_account_key
+2021-01-28 16:20:16-[com.richcoder.mybatis.start.DefaultGeneratorStarter] [INFO] **********代码生成工具,开始自动生成代码>>>mapper,mapperConfig,model,service.
+2021-01-28 16:20:23-[com.richcoder.mybatis.start.DefaultGeneratorStarter] [INFO] **********代码生成工具,已经结束生成代码>>>t_batch_account_key
+2021-01-28 16:20:23-[com.richcoder.mybatis.start.DefaultGeneratorStarter] [INFO] **********代码生成工具,开始自动生成代码>>>t_batch_address
+2021-01-28 16:20:23-[com.richcoder.mybatis.start.DefaultGeneratorStarter] [INFO] **********代码生成工具,开始自动生成代码>>>mapper,mapperConfig,model,service.
+2021-01-28 16:20:24-[com.richcoder.mybatis.start.DefaultGeneratorStarter] [INFO] **********代码生成工具,已经结束生成代码>>>t_batch_address
+2021-01-28 16:20:24-[com.richcoder.mybatis.start.DefaultGeneratorStarter] [INFO] **********代码生成工具,开始自动生成代码>>>t_batch_task
+2021-01-28 16:20:24-[com.richcoder.mybatis.start.DefaultGeneratorStarter] [INFO] **********代码生成工具,开始自动生成代码>>>mapper,mapperConfig,model,service.
+2021-01-28 16:20:24-[com.richcoder.mybatis.start.DefaultGeneratorStarter] [INFO] **********代码生成工具,已经结束生成代码>>>t_batch_task
+2021-01-28 16:20:24-[com.richcoder.mybatis.start.DefaultGeneratorStarter] [INFO] **********代码生成工具,开始自动生成代码>>>t_batch_task_detail
+2021-01-28 16:20:24-[com.richcoder.mybatis.start.DefaultGeneratorStarter] [INFO] **********代码生成工具,开始自动生成代码>>>mapper,mapperConfig,model,service.
+2021-01-28 16:20:25-[com.richcoder.mybatis.start.DefaultGeneratorStarter] [INFO] **********代码生成工具,已经结束生成代码>>>t_batch_task_detail
+2021-01-28 16:20:25-[com.richcoder.mybatis.start.DefaultGeneratorStarter] [INFO] **********代码生成工具,已经结束生成代码**********
