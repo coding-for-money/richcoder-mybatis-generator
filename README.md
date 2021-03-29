@@ -5,8 +5,7 @@
 
 >概述
 
-CodeGenerator是一个轻量的代码生成工具，可以在常规的项目开发初始阶段生成model、dao、Mapper、
-mapper（mybatis）、service、controller，项目思路来源于mybatis－generator，不过代码更加简洁易控制
+可以在常规的项目开发初始阶段生成model、dao、Mapper、mapper（mybatis）、service、controller
 
 
 
