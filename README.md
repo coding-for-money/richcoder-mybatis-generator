@@ -8,11 +8,7 @@
 CodeGenerator是一个轻量的代码生成工具，可以在常规的项目开发初始阶段生成model、dao、Mapper、
 mapper（mybatis）、service、controller，项目思路来源于mybatis－generator，不过代码更加简洁易控制
 
- - 修复了关键字字段时SQL报错问题，关键字自动加上解析符号
- 
- - 优化数据库字段如果是tinyint是属性变成Integer属性
- 
- - 优化数据库字段如果是text是属性变成String属性
+
 
 >特性
 
