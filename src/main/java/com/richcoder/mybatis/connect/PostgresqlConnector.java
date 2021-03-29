@@ -7,11 +7,14 @@ import com.richcoder.mybatis.utils.PropertiesUtils;
 import java.sql.*;
 import java.util.*;
 
-public class MysqlConnector implements Connector {
+/**
+ * oracle connect
+ */
+public class PostgresqlConnector implements Connector {
 
     private Properties properties;
 
-    public MysqlConnector(Properties properties) {
+    public PostgresqlConnector(Properties properties) {
         this.properties = properties;
     }
 
@@ -184,40 +187,24 @@ public class MysqlConnector implements Connector {
     private String getDataType(int type, int digits) {
         String dataType;
         switch (type) {
-            case Types.VARCHAR:  //12
-                dataType = "String";
-                break;
-            case Types.INTEGER:    //4
+            case Types.INTEGER:
+            case Types.BIT:
+            case Types.SMALLINT:
+            case Types.TINYINT:
                 dataType = "Integer";
                 break;
-            case Types.SMALLINT:    //4
-                dataType = "Integer";
-                break;
-            case Types.TINYINT:    //4
-                dataType = "Integer";
-                break;
-            case Types.BIT:    //-7
-                dataType = "Integer";
-                break;
-            case Types.LONGVARCHAR: //-1
-                dataType = "String";
-                break;
-            case Types.BIGINT: //-5
+            case Types.BIGINT:
                 dataType = "Long";
                 break;
-            case Types.DOUBLE: //8
+            case Types.DOUBLE:
+            case Types.FLOAT:
+            case Types.REAL:
                 dataType = getPrecisionType();
                 break;
-            case Types.REAL: //7
-                dataType = getPrecisionType();
-                break;
-            case Types.FLOAT: //6
-                dataType = getPrecisionType();
-                break;
-            case Types.DECIMAL:    //3
+            case Types.DECIMAL:
                 dataType = "BigDecimal";
                 break;
-            case Types.NUMERIC: //2
+            case Types.NUMERIC:
                 switch (digits) {
                     case 0:
                         dataType = "Integer";
@@ -227,12 +214,8 @@ public class MysqlConnector implements Connector {
                 }
                 break;
             case Types.TIME:
-                dataType = "Date";
-                break;
-            case Types.DATE:
-                dataType = "Date";
-                break;
             case Types.TIMESTAMP:
+            case Types.DATE:
                 dataType = "Date";
                 break;
             default:

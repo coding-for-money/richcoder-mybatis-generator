@@ -54,6 +54,26 @@
     </trim>
   </insert>
 
+    <insert id="batchInsert"
+            useGeneratedKeys="true" keyProperty="${normalPrimaryKey}">
+        INSERT INTO
+        <include refid="Table_Name"/>
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            #foreach($insertColsCondition in $batchInsertColsConditions)
+            $insertColsCondition
+#end
+        </trim>
+        values
+        <foreach collection="list" item="item" separator="," close=")" open="(">
+            #foreach($insertValueCondition in $batchInsertValueConditions)
+            $insertValueCondition
+#end
+        </foreach>
+
+    </insert>
+
+
+
   <update id="updateByPrimaryKeySelective" parameterType="${upClassName}${poPackageFileSuffix}">
     UPDATE
     <include refid="Table_Name"/>

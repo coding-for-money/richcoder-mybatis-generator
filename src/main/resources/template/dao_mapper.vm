@@ -11,6 +11,8 @@ public interface ${upClassName}${mapperPackageFileSuffix} {
 
 Integer insertSelective(${upClassName}${poPackageFileSuffix} ${lowClassName}${poPackageFileSuffix});
 
+Integer batchInsert(List<${upClassName}${poPackageFileSuffix}> list);
+
 Integer updateByPrimaryKeySelective(${upClassName}${poPackageFileSuffix} ${lowClassName}${poPackageFileSuffix});
 
 ${upClassName}${poPackageFileSuffix} selectByPrimaryKeySelective(${upClassName}${poPackageFileSuffix} ${lowClassName}${poPackageFileSuffix});
@@ -22,5 +24,7 @@ List<${upClassName}${poPackageFileSuffix}> listPageSelective(${upClassName}${poP
 Integer countSelective(${upClassName}${poPackageFileSuffix} ${lowClassName}${poPackageFileSuffix});
 
 Integer deleteByPrimaryKeySelective(${upClassName}${poPackageFileSuffix} ${lowClassName}${poPackageFileSuffix});
+
+
 
 }

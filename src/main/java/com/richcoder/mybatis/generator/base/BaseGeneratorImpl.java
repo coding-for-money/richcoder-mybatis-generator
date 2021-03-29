@@ -228,7 +228,7 @@ public class BaseGeneratorImpl implements Generator {
 
     titleSb.append("/** ")
         .append(LINE)
-        .append(String.format("auto generator ,don't modify!!!"))
+        .append(String.format("auto generator ,"))
         .append(LINE)
         .append(String.format(" * @author %s", authorName))
         .append(LINE)
