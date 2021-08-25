@@ -10,7 +10,8 @@
     <!-- 生成swagger注解-->
     <plugin type="com.liveneo.sgplatform.plugins.GeneratorSwagger2Doc">
       <property name="apiModelAnnotationPackage" value="io.swagger.annotations.ApiModel"/>
-      <property name="apiModelPropertyAnnotationPackage" value="io.swagger.annotations.ApiModelProperty"/>
+      <property name="apiModelPropertyAnnotationPackage"
+        value="io.swagger.annotations.ApiModelProperty"/>
     </plugin>
     <commentGenerator>
       <property name="suppressAllComments" value="true"/>
@@ -36,7 +37,6 @@
       driverClass="com.mysql.cj.jdbc.Driver" password="password"
       userId="root">
     </jdbcConnection>
-
 
 
     <sqlMapGenerator targetPackage="sqlmap" targetProject="src/main/resources">

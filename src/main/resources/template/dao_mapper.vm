@@ -26,5 +26,4 @@ Integer countSelective(${upClassName}${modelPackageFileSuffix} ${lowClassName}${
 Integer deleteByPrimaryKeySelective(${upClassName}${modelPackageFileSuffix} ${lowClassName}${modelPackageFileSuffix});
 
 
-
 }

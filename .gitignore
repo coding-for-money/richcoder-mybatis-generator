@@ -83,3 +83,4 @@ Thumbs.db
 D:\tmp\cache\*
 D:/tmp/cache/YieldCurveCache.txt
 /info.log*
+/src/test/java/com/huobi/finance/entity/

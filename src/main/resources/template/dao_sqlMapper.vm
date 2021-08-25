@@ -38,7 +38,8 @@
 
   </sql>
 
-  <insert id="insertSelective" parameterType="${modelPackage}.${upClassName}${modelPackageFileSuffix}"
+  <insert id="insertSelective"
+          parameterType="${modelPackage}.${upClassName}${modelPackageFileSuffix}"
           useGeneratedKeys="true" keyProperty="${normalPrimaryKey}">
     INSERT INTO
     <include refid="Table_Name"/>
@@ -54,27 +55,27 @@
     </trim>
   </insert>
 
-    <insert id="batchInsert"
-            useGeneratedKeys="true" keyProperty="${normalPrimaryKey}">
-        INSERT INTO
-        <include refid="Table_Name"/>
-        <trim prefix="(" suffix=")" suffixOverrides=",">
-            #foreach($insertColsCondition in $batchInsertColsConditions)
+  <insert id="batchInsert"
+          useGeneratedKeys="true" keyProperty="${normalPrimaryKey}">
+    INSERT INTO
+    <include refid="Table_Name"/>
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+        #foreach($insertColsCondition in $batchInsertColsConditions)
             $insertColsCondition
 #end
-        </trim>
-        values
-        <foreach collection="list" item="item" separator="," close=")" open="(">
-            #foreach($insertValueCondition in $batchInsertValueConditions)
+    </trim>
+    values
+    <foreach collection="list" item="item" separator="," close=")" open="(">
+        #foreach($insertValueCondition in $batchInsertValueConditions)
             $insertValueCondition
 #end
-        </foreach>
+    </foreach>
 
-    </insert>
+  </insert>
 
 
-
-  <update id="updateByPrimaryKeySelective" parameterType="${modelPackage}.${upClassName}${modelPackageFileSuffix}">
+  <update id="updateByPrimaryKeySelective"
+          parameterType="${modelPackage}.${upClassName}${modelPackageFileSuffix}">
     UPDATE
     <include refid="Table_Name"/>
     <set>
@@ -124,7 +125,8 @@
     <include refid="Query_Where_Column_List"/>
   </select>
 
-  <delete id="deleteByPrimaryKeySelective" parameterType="${modelPackage}.${upClassName}${modelPackageFileSuffix}">
+  <delete id="deleteByPrimaryKeySelective"
+          parameterType="${modelPackage}.${upClassName}${modelPackageFileSuffix}">
     DELETE FROM
     <include refid="Table_Name"/>
     <include refid="PrimaryKeyQuery_Where_Column_List"/>
