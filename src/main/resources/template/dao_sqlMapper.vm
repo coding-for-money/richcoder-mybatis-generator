@@ -4,7 +4,7 @@
 
 <mapper namespace="${mapperPackage}.${upClassName}${mapperPackageFileSuffix}">
 
-  <resultMap id="BaseResultMap" type="${upClassName}${poPackageFileSuffix}">
+  <resultMap id="BaseResultMap" type="${modelPackage}.${upClassName}${modelPackageFileSuffix}">
       #foreach($resultMapColumn in $resultMapColumns)
         $resultMapColumn
 #end
@@ -38,7 +38,7 @@
 
   </sql>
 
-  <insert id="insertSelective" parameterType="${upClassName}${poPackageFileSuffix}"
+  <insert id="insertSelective" parameterType="${modelPackage}.${upClassName}${modelPackageFileSuffix}"
           useGeneratedKeys="true" keyProperty="${normalPrimaryKey}">
     INSERT INTO
     <include refid="Table_Name"/>
@@ -74,7 +74,7 @@
 
 
 
-  <update id="updateByPrimaryKeySelective" parameterType="${upClassName}${poPackageFileSuffix}">
+  <update id="updateByPrimaryKeySelective" parameterType="${modelPackage}.${upClassName}${modelPackageFileSuffix}">
     UPDATE
     <include refid="Table_Name"/>
     <set>
@@ -86,7 +86,7 @@
   </update>
 
   <select id="selectByPrimaryKeySelective" resultMap="BaseResultMap"
-          parameterType="${upClassName}${poPackageFileSuffix}">
+          parameterType="${modelPackage}.${upClassName}${modelPackageFileSuffix}">
     SELECT
     <include refid="Base_Column_List"/>
     FROM
@@ -95,7 +95,7 @@
   </select>
 
   <select id="queryList" resultMap="BaseResultMap"
-          parameterType="${upClassName}${poPackageFileSuffix}">
+          parameterType="${modelPackage}.${upClassName}${modelPackageFileSuffix}">
     SELECT
     <include refid="Base_Column_List"/>
     FROM
@@ -105,7 +105,7 @@
   </select>
 
   <select id="listPageSelective" resultMap="BaseResultMap"
-          parameterType="${upClassName}${poPackageFileSuffix}">
+          parameterType="${modelPackage}.${upClassName}${modelPackageFileSuffix}">
     SELECT
     <include refid="Base_Column_List"/>
     FROM
@@ -116,7 +116,7 @@
   </select>
 
   <select id="countSelective" resultType="java.lang.Integer"
-          parameterType="${upClassName}${poPackageFileSuffix}">
+          parameterType="${modelPackage}.${upClassName}${modelPackageFileSuffix}">
     SELECT
     COUNT(*)
     FROM
@@ -124,7 +124,7 @@
     <include refid="Query_Where_Column_List"/>
   </select>
 
-  <delete id="deleteByPrimaryKeySelective" parameterType="${upClassName}${poPackageFileSuffix}">
+  <delete id="deleteByPrimaryKeySelective" parameterType="${modelPackage}.${upClassName}${modelPackageFileSuffix}">
     DELETE FROM
     <include refid="Table_Name"/>
     <include refid="PrimaryKeyQuery_Where_Column_List"/>

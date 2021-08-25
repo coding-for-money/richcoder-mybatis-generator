@@ -238,8 +238,7 @@ public class BaseGeneratorImpl implements Generator {
         .append(LINE)
         .append(" */");
     velocityContext.put("classTitle", titleSb.toString());
-    velocityContext
-        .put("poPackageFileSuffix", generatorContext.getAttribute("poPackageFileSuffix"));
+
     velocityContext
         .put("modelPackageFileSuffix", generatorContext.getAttribute("modelPackageFileSuffix"));
   }

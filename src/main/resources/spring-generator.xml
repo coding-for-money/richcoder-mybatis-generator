@@ -8,12 +8,6 @@
         <constructor-arg name="packageConfigTypeSet">
             <set>
                 <bean class="com.richcoder.mybatis.config.PackageConfigType">
-                    <property name="aliasType" value="poPackage"/>
-                    <property name="targetDir" value="/po"/>
-                    <property name="fileNameSuffix" value="Entity.java"/>
-                    <property name="template" value="domain_po.vm"/>
-                </bean>
-                <bean class="com.richcoder.mybatis.config.PackageConfigType">
                     <property name="aliasType" value="modelPackage"/>
                     <property name="targetDir" value="/model"/>
                     <property name="fileNameSuffix" value="Model.java"/>
@@ -35,7 +29,6 @@
                 <bean class="com.richcoder.mybatis.config.PackageConfigType">
                     <property name="aliasType" value="mapperPackage"/>
                     <property name="targetDir" value="/dao"/>
-                    <!--            mapper文件结尾-->
                     <property name="fileNameSuffix" value="Mapper.java"/>
                     <property name="template" value="dao_mapper.vm"/>
                 </bean>

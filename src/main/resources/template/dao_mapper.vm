@@ -2,28 +2,28 @@ package ${mapperPackage};
 
 import java.util.List;
 
-import ${poPackage}.${upClassName}${poPackageFileSuffix};
+import ${modelPackage}.${upClassName}${modelPackageFileSuffix};
 import org.springframework.stereotype.Repository;
 
 ${classTitle}
 @Repository
 public interface ${upClassName}${mapperPackageFileSuffix} {
 
-Integer insertSelective(${upClassName}${poPackageFileSuffix} ${lowClassName}${poPackageFileSuffix});
+Integer insertSelective(${upClassName}${modelPackageFileSuffix} ${lowClassName}${modelPackageFileSuffix});
 
-Integer batchInsert(List<${upClassName}${poPackageFileSuffix}> list);
+Integer batchInsert(List<${upClassName}${modelPackageFileSuffix}> list);
 
-Integer updateByPrimaryKeySelective(${upClassName}${poPackageFileSuffix} ${lowClassName}${poPackageFileSuffix});
+Integer updateByPrimaryKeySelective(${upClassName}${modelPackageFileSuffix} ${lowClassName}${modelPackageFileSuffix});
 
-${upClassName}${poPackageFileSuffix} selectByPrimaryKeySelective(${upClassName}${poPackageFileSuffix} ${lowClassName}${poPackageFileSuffix});
+${upClassName}${modelPackageFileSuffix} selectByPrimaryKeySelective(${upClassName}${modelPackageFileSuffix} ${lowClassName}${modelPackageFileSuffix});
 
-List<${upClassName}${poPackageFileSuffix}> queryList(${upClassName}${poPackageFileSuffix} ${lowClassName}${poPackageFileSuffix});
+List<${upClassName}${modelPackageFileSuffix}> queryList(${upClassName}${modelPackageFileSuffix} ${lowClassName}${modelPackageFileSuffix});
 
-List<${upClassName}${poPackageFileSuffix}> listPageSelective(${upClassName}${poPackageFileSuffix} ${lowClassName}${poPackageFileSuffix});
+List<${upClassName}${modelPackageFileSuffix}> listPageSelective(${upClassName}${modelPackageFileSuffix} ${lowClassName}${modelPackageFileSuffix});
 
-Integer countSelective(${upClassName}${poPackageFileSuffix} ${lowClassName}${poPackageFileSuffix});
+Integer countSelective(${upClassName}${modelPackageFileSuffix} ${lowClassName}${modelPackageFileSuffix});
 
-Integer deleteByPrimaryKeySelective(${upClassName}${poPackageFileSuffix} ${lowClassName}${poPackageFileSuffix});
+Integer deleteByPrimaryKeySelective(${upClassName}${modelPackageFileSuffix} ${lowClassName}${modelPackageFileSuffix});
 
 
 

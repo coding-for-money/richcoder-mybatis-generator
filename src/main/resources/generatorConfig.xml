@@ -7,7 +7,11 @@
   <classPathEntry location="mysql-connector-java-5.1.8.jar"/>
 
   <context id="mysqlTables" targetRuntime="MyBatis3">
-
+    <!-- 生成swagger注解-->
+    <plugin type="com.liveneo.sgplatform.plugins.GeneratorSwagger2Doc">
+      <property name="apiModelAnnotationPackage" value="io.swagger.annotations.ApiModel"/>
+      <property name="apiModelPropertyAnnotationPackage" value="io.swagger.annotations.ApiModelProperty"/>
+    </plugin>
     <commentGenerator>
       <property name="suppressAllComments" value="true"/>
       <property name="suppressDate" value="true"/>
@@ -32,6 +36,7 @@
       driverClass="com.mysql.cj.jdbc.Driver" password="password"
       userId="root">
     </jdbcConnection>
+
 
 
     <sqlMapGenerator targetPackage="sqlmap" targetProject="src/main/resources">
