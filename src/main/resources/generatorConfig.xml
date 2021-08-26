@@ -8,7 +8,7 @@
 
   <context id="mysqlTables" targetRuntime="MyBatis3">
     <!-- 生成swagger注解-->
-    <plugin type="com.liveneo.sgplatform.plugins.GeneratorSwagger2Doc">
+    <plugin type="com.richcoder.mybatis.config.GeneratorSwagger2Doc">
       <property name="apiModelAnnotationPackage" value="io.swagger.annotations.ApiModel"/>
       <property name="apiModelPropertyAnnotationPackage"
         value="io.swagger.annotations.ApiModelProperty"/>

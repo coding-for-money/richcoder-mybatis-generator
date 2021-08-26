@@ -238,7 +238,8 @@ public class BaseGeneratorImpl implements Generator {
         .append(LINE)
         .append(" */");
     velocityContext.put("classTitle", titleSb.toString());
-
+    String classAnnotation = "@ApiModel(description=\"" + generatorContext.getTableName() + "\")";
+    velocityContext.put("classAnnotation", classAnnotation);
     velocityContext
         .put("modelPackageFileSuffix", generatorContext.getAttribute("modelPackageFileSuffix"));
   }
@@ -319,7 +320,10 @@ public class BaseGeneratorImpl implements Generator {
         sb.append("\t").append(" */").append(LINE);
         sb.append("\t");
       }
-      sb.append("private ")
+      String propertie = org.apache.commons.lang3.StringUtils.isEmpty(columnRemarkMap.get(key)) ? key : columnRemarkMap.get(key);
+      sb.append("@ApiModelProperty(value=\"" +propertie + "\")").append(LINE);
+
+      sb.append("  private ")
           .append(value + " ")
           .append(GeneratorStringUtils.format(key, properties) + ";")
           .append(LINE);

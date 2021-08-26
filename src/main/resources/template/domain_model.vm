@@ -5,8 +5,11 @@ package ${modelPackage};
 #end
 import lombok.Data;
 import java.io.Serializable;
+import io.swagger.annotations.ApiModelProperty;
+import io.swagger.annotations.ApiModel;
 
 ${classTitle}
+${classAnnotation}
 @Data
 public class ${upClassName}${modelPackageFileSuffix} implements Serializable {
 
