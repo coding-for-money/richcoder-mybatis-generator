@@ -1,4 +1,4 @@
-package ${modelPackage};
+package ${entityPackage};
 
 #foreach($ims in $importSets)
     ${ims}
@@ -11,7 +11,7 @@ import io.swagger.annotations.ApiModel;
 ${classTitle}
 ${classAnnotation}
 @Data
-public class ${upClassName}${modelPackageFileSuffix} implements Serializable {
+public class ${upClassName}${entityPackageFileSuffix} implements Serializable {
 
 private static final long serialVersionUID = ${SerialVersionUID}L;
 

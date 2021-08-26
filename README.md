@@ -58,121 +58,122 @@
 
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-    <bean id="modelPackageConfigTypes" class="com.richcoder.mybatis.config.PackageConfigTypes">
-        <constructor-arg name="type" value="MODEL"/>
-        <constructor-arg name="packageConfigTypeSet">
-            <set>
-                <bean class="com.richcoder.mybatis.config.PackageConfigType">
-                    <property name="aliasType" value="poPackage"/>
-                    <property name="targetDir" value="/po"/>
-                    <property name="fileNameSuffix" value="PO.java"/>
-                    <property name="template" value="domain_po.vm"/>
-                </bean>
-                <bean class="com.richcoder.mybatis.config.PackageConfigType">
-                    <property name="aliasType" value="modelPackage"/>
-                    <property name="targetDir" value="/model"/>
-                    <property name="fileNameSuffix" value="Model.java"/>
-                    <property name="template" value="domain_model.vm"/>
-                </bean>
-            </set>
-        </constructor-arg>
-    </bean>
+  <bean id="entityPackageConfigTypes" class="com.richcoder.mybatis.config.PackageConfigTypes">
+    <constructor-arg name="type" value="MODEL"/>
+    <constructor-arg name="packageConfigTypeSet">
+      <set>
+        <bean class="com.richcoder.mybatis.config.PackageConfigType">
+          <property name="aliasType" value="poPackage"/>
+          <property name="targetDir" value="/po"/>
+          <property name="fileNameSuffix" value="PO.java"/>
+          <property name="template" value="domain_po.vm"/>
+        </bean>
+        <bean class="com.richcoder.mybatis.config.PackageConfigType">
+          <property name="aliasType" value="entityPackage"/>
+          <property name="targetDir" value="/model"/>
+          <property name="fileNameSuffix" value="Model.java"/>
+          <property name="template" value="domain_entity.vm"/>
+        </bean>
+      </set>
+    </constructor-arg>
+  </bean>
 
-    <bean id="mapperPackageConfigTypes" class="com.richcoder.mybatis.config.PackageConfigTypes">
-        <constructor-arg name="type" value="MAPPER"/>
-        <constructor-arg name="packageConfigTypeSet">
-            <set>
-                <bean class="com.richcoder.mybatis.config.PackageConfigType">
-                    <property name="targetDir" value="/dao/mapper"/>
-                    <property name="fileNameSuffix" value="Mapper.xml"/>
-                    <property name="template" value="dao_sqlMapper.vm"/>
-                </bean>
-                <bean class="com.richcoder.mybatis.config.PackageConfigType">
-                    <property name="aliasType" value="mapperPackage"/>
-                    <property name="targetDir" value="/dao"/>
-                    <property name="fileNameSuffix" value="DAO.java"/>
-                    <property name="template" value="dao_mapper.vm"/>
-                </bean>
-            </set>
-        </constructor-arg>
-    </bean>
+  <bean id="mapperPackageConfigTypes" class="com.richcoder.mybatis.config.PackageConfigTypes">
+    <constructor-arg name="type" value="MAPPER"/>
+    <constructor-arg name="packageConfigTypeSet">
+      <set>
+        <bean class="com.richcoder.mybatis.config.PackageConfigType">
+          <property name="targetDir" value="/dao/mapper"/>
+          <property name="fileNameSuffix" value="Mapper.xml"/>
+          <property name="template" value="dao_sqlMapper.vm"/>
+        </bean>
+        <bean class="com.richcoder.mybatis.config.PackageConfigType">
+          <property name="aliasType" value="mapperPackage"/>
+          <property name="targetDir" value="/dao"/>
+          <property name="fileNameSuffix" value="DAO.java"/>
+          <property name="template" value="dao_mapper.vm"/>
+        </bean>
+      </set>
+    </constructor-arg>
+  </bean>
 
-    <bean id="mapperConfigPackageConfigTypes" class="com.richcoder.mybatis.config.PackageConfigTypes">
-        <constructor-arg name="type" value="MAPPER_CONFIG"/>
-        <constructor-arg name="packageConfigTypeSet">
-            <set>
-                <bean class="com.richcoder.mybatis.config.PackageConfigType">
-                    <property name="targetDir" value="/dao/mapper"/>
-                    <property name="fileNameSuffix" value="mybatis-config.xml"/>
-                    <property name="template" value="mybatis-config.vm"/>
-                </bean>
-            </set>
-        </constructor-arg>
-    </bean>
+  <bean id="mapperConfigPackageConfigTypes" class="com.richcoder.mybatis.config.PackageConfigTypes">
+    <constructor-arg name="type" value="MAPPER_CONFIG"/>
+    <constructor-arg name="packageConfigTypeSet">
+      <set>
+        <bean class="com.richcoder.mybatis.config.PackageConfigType">
+          <property name="targetDir" value="/dao/mapper"/>
+          <property name="fileNameSuffix" value="mybatis-config.xml"/>
+          <property name="template" value="mybatis-config.vm"/>
+        </bean>
+      </set>
+    </constructor-arg>
+  </bean>
 
-    <bean id="resultPackageConfigTypes" class="com.richcoder.mybatis.config.PackageConfigTypes">
-        <constructor-arg name="type" value="RESULT"/>
-        <constructor-arg name="packageConfigTypeSet">
-            <set>
-                <bean class="com.richcoder.mybatis.config.PackageConfigType">
-                    <property name="aliasType" value="resultPackage"/>
-                    <property name="targetDir" value="/service/module"/>
-                    <property name="fileNameSuffix" value="Result.java"/>
-                    <property name="template" value="result.vm"/>
-                </bean>
-            </set>
-        </constructor-arg>
-    </bean>
+  <bean id="resultPackageConfigTypes" class="com.richcoder.mybatis.config.PackageConfigTypes">
+    <constructor-arg name="type" value="RESULT"/>
+    <constructor-arg name="packageConfigTypeSet">
+      <set>
+        <bean class="com.richcoder.mybatis.config.PackageConfigType">
+          <property name="aliasType" value="resultPackage"/>
+          <property name="targetDir" value="/service/module"/>
+          <property name="fileNameSuffix" value="Result.java"/>
+          <property name="template" value="result.vm"/>
+        </bean>
+      </set>
+    </constructor-arg>
+  </bean>
 
-    <bean id="servicePackageConfigTypes" class="com.richcoder.mybatis.config.PackageConfigTypes">
-        <constructor-arg name="type" value="SERVICE"/>
-        <constructor-arg name="packageConfigTypeSet">
-            <set>
-                <bean class="com.richcoder.mybatis.config.PackageConfigType">
-                    <property name="aliasType" value="servicePackage"/>
-                    <property name="targetDir" value="/service"/>
-                    <property name="fileNameSuffix" value="Service.java"/>
-                    <property name="template" value="service.vm"/>
-                </bean>
-                <bean class="com.richcoder.mybatis.config.PackageConfigType">
-                    <property name="aliasType" value="serviceImplPackage"/>
-                    <property name="targetDir" value="/service/impl"/>
-                    <property name="fileNameSuffix" value="ServiceImpl.java"/>
-                    <property name="template" value="service_impl.vm"/>
-                </bean>
-            </set>
-        </constructor-arg>
-    </bean>
+  <bean id="servicePackageConfigTypes" class="com.richcoder.mybatis.config.PackageConfigTypes">
+    <constructor-arg name="type" value="SERVICE"/>
+    <constructor-arg name="packageConfigTypeSet">
+      <set>
+        <bean class="com.richcoder.mybatis.config.PackageConfigType">
+          <property name="aliasType" value="servicePackage"/>
+          <property name="targetDir" value="/service"/>
+          <property name="fileNameSuffix" value="Service.java"/>
+          <property name="template" value="service.vm"/>
+        </bean>
+        <bean class="com.richcoder.mybatis.config.PackageConfigType">
+          <property name="aliasType" value="serviceImplPackage"/>
+          <property name="targetDir" value="/service/impl"/>
+          <property name="fileNameSuffix" value="ServiceImpl.java"/>
+          <property name="template" value="service_impl.vm"/>
+        </bean>
+      </set>
+    </constructor-arg>
+  </bean>
 
-    <bean id="modelGenerator" class="com.richcoder.mybatis.generator.impl.ModelGeneratorImpl">
-        <property name="packageConfigTypes" ref="modelPackageConfigTypes"/>
-    </bean>
-    <bean id="mapperGenerator" class="com.richcoder.mybatis.generator.impl.MapperGeneratorImpl">
-        <property name="packageConfigTypes" ref="mapperPackageConfigTypes"/>
-    </bean>
-    <bean id="mapperConfigGenerator" class="com.richcoder.mybatis.generator.impl.MapperConfigGeneratorImpl">
-        <property name="packageConfigTypes" ref="mapperConfigPackageConfigTypes"/>
-    </bean>
-    <bean id="resultGenerator" class="com.richcoder.mybatis.generator.impl.ResultGeneratorImpl">
-        <property name="packageConfigTypes" ref="resultPackageConfigTypes"/>
-    </bean>
-    <bean id="serviceGenerator" class="com.richcoder.mybatis.generator.impl.ServiceGeneratorImpl">
-        <property name="packageConfigTypes" ref="servicePackageConfigTypes"/>
-    </bean>
-    <bean id="generatorFactory" class="com.richcoder.mybatis.generator.base.GeneratorFactoryImpl">
-        <property name="generatorSet">
-            <set>
-                <bean parent="modelGenerator"/>
-                <bean parent="mapperGenerator"/>
-                <bean parent="mapperConfigGenerator"/>
-                <bean parent="resultGenerator"/>
-                <bean parent="serviceGenerator"/>
-            </set>
-        </property>
-    </bean>
+  <bean id="entityGenerator" class="com.richcoder.mybatis.generator.impl.ResGeneratorImpl">
+    <property name="packageConfigTypes" ref="entityPackageConfigTypes"/>
+  </bean>
+  <bean id="mapperGenerator" class="com.richcoder.mybatis.generator.impl.MapperGeneratorImpl">
+    <property name="packageConfigTypes" ref="mapperPackageConfigTypes"/>
+  </bean>
+  <bean id="mapperConfigGenerator"
+    class="com.richcoder.mybatis.generator.impl.MapperConfigGeneratorImpl">
+    <property name="packageConfigTypes" ref="mapperConfigPackageConfigTypes"/>
+  </bean>
+  <bean id="resultGenerator" class="com.richcoder.mybatis.generator.impl.ResultGeneratorImpl">
+    <property name="packageConfigTypes" ref="resultPackageConfigTypes"/>
+  </bean>
+  <bean id="serviceGenerator" class="com.richcoder.mybatis.generator.impl.ServiceGeneratorImpl">
+    <property name="packageConfigTypes" ref="servicePackageConfigTypes"/>
+  </bean>
+  <bean id="generatorFactory" class="com.richcoder.mybatis.generator.base.GeneratorFactoryImpl">
+    <property name="generatorSet">
+      <set>
+        <bean parent="modelGenerator"/>
+        <bean parent="mapperGenerator"/>
+        <bean parent="mapperConfigGenerator"/>
+        <bean parent="resultGenerator"/>
+        <bean parent="serviceGenerator"/>
+      </set>
+    </property>
+  </bean>
 </beans>
 
 ```

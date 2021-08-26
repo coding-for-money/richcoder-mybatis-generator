@@ -227,21 +227,20 @@ public class BaseGeneratorImpl implements Generator {
             : generatorContext.getAuthorName();
 
     titleSb.append("/** ")
-        .append(LINE)
-        .append(String.format("auto generator ,"))
-        .append(LINE)
-        .append(String.format(" * @author %s", authorName))
-        .append(LINE)
-        .append(String.format(" * @version %s", "V1.0"))
-        .append(LINE)
-        .append(String.format(" * @date %s.", dateFormat.format(new Date())))
-        .append(LINE)
-        .append(" */");
+           .append(LINE)
+           .append(String.format(" * @author %s", authorName))
+           .append(LINE)
+           .append(String.format(" * @version %s", "V1.0"))
+           .append(LINE)
+           .append(String.format(" * @date %s.", dateFormat.format(new Date())))
+           .append(LINE)
+           .append(" */");
     velocityContext.put("classTitle", titleSb.toString());
+
     String classAnnotation = "@ApiModel(description=\"" + generatorContext.getTableName() + "\")";
     velocityContext.put("classAnnotation", classAnnotation);
     velocityContext
-        .put("modelPackageFileSuffix", generatorContext.getAttribute("modelPackageFileSuffix"));
+        .put("entityPackageFileSuffix", generatorContext.getAttribute("entityPackageFileSuffix"));
   }
 
   /**
@@ -287,7 +286,7 @@ public class BaseGeneratorImpl implements Generator {
     String fileDir = null;
     try {
       fileDir = Thread.currentThread().getContextClassLoader().getResource(VM_TARGET_PATH)
-          .getPath();
+                      .getPath();
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -308,7 +307,7 @@ public class BaseGeneratorImpl implements Generator {
 
   protected List<String> generateFields(Map<String, String> map,
       Map<String, String> columnRemarkMap,
-      Properties properties) {
+      Properties properties, String type) {
     Set<String> keySet = map.keySet();
     List<String> fields = Lists.newArrayList();
     for (String key : keySet) {
@@ -321,12 +320,14 @@ public class BaseGeneratorImpl implements Generator {
         sb.append("\t");
       }
       String propertie = org.apache.commons.lang3.StringUtils.isEmpty(columnRemarkMap.get(key)) ? key : columnRemarkMap.get(key);
-      sb.append("@ApiModelProperty(value=\"" +propertie + "\")").append(LINE);
+      if (type.equals("res")) {
+        sb.append("@ApiModelProperty(value=\"" + propertie + "\")").append(LINE);
+      }
 
       sb.append("  private ")
-          .append(value + " ")
-          .append(GeneratorStringUtils.format(key, properties) + ";")
-          .append(LINE);
+        .append(value + " ")
+        .append(GeneratorStringUtils.format(key, properties) + ";")
+        .append(LINE);
       fields.add(sb.toString());
     }
     return fields;
@@ -342,24 +343,24 @@ public class BaseGeneratorImpl implements Generator {
       String fieldType = map.get(key);
       // generate get method
       getSb.append("public ")
-          .append(fieldType + " ")
-          .append("get" + GeneratorStringUtils.firstUpperNoFormat(field) + "() {")
-          .append(LINE)
-          .append("\t\t")
-          .append("return " + field + ";")
-          .append(LINE)
-          .append("\t}");
+           .append(fieldType + " ")
+           .append("get" + GeneratorStringUtils.firstUpperNoFormat(field) + "() {")
+           .append(LINE)
+           .append("\t\t")
+           .append("return " + field + ";")
+           .append(LINE)
+           .append("\t}");
       // generate set method
       setSb.append("public ")
-          .append("void ")
-          .append(
-              "set" + GeneratorStringUtils.firstUpperNoFormat(field) + "(" + fieldType + " " + field
-                  + ") {")
-          .append(LINE)
-          .append("\t\t")
-          .append("this." + field + " = " + field + ";")
-          .append(LINE)
-          .append("\t}");
+           .append("void ")
+           .append(
+               "set" + GeneratorStringUtils.firstUpperNoFormat(field) + "(" + fieldType + " " + field
+                   + ") {")
+           .append(LINE)
+           .append("\t\t")
+           .append("this." + field + " = " + field + ";")
+           .append(LINE)
+           .append("\t}");
       methods.add(getSb.toString());
       methods.add(setSb.toString());
     }

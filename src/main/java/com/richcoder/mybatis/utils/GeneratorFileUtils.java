@@ -115,7 +115,7 @@ public class GeneratorFileUtils {
       Set<PackageConfigTypes> packageConfigTypesSet) {
     Map<String, String> typeAliasesMap = new TreeMap<>();
     for (PackageConfigTypes packageConfigTypes : packageConfigTypesSet) {
-      if (ConfigType.MODEL.equals(packageConfigTypes.getType())) {
+      if (ConfigType.ENTITY.equals(packageConfigTypes.getType())) {
         for (PackageConfigType packageConfigType : packageConfigTypes.getPackageConfigTypeSet()) {
           String fileNameSuffix = packageConfigType.getFileNameSuffix();
           if (fileNameSuffix.endsWith(".java")) {

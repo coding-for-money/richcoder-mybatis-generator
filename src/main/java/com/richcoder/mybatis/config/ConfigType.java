@@ -1,21 +1,22 @@
 package com.richcoder.mybatis.config;
 
 public enum ConfigType {
-    MODEL("model"),
+  ENTITY("entity"),
+  RES("res"),
 
-    MAPPER("mapper"),
+  MAPPER("mapper"),
 
-    MAPPER_CONFIG("mapperConfig"),
+  MAPPER_CONFIG("mapperConfig"),
 
-    RESULT("result"),
+  RESULT("result"),
 
-    SERVICE("service"),
+  SERVICE("service"),
 
-    CONTROLLER("controller");
+  CONTROLLER("controller");
 
-    public String key;
+  public String key;
 
-    ConfigType(String key) {
-        this.key = key;
-    }
+  ConfigType(String key) {
+    this.key = key;
+  }
 }

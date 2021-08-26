@@ -3,15 +3,30 @@
   xmlns="http://www.springframework.org/schema/beans"
   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-  <bean class="com.richcoder.mybatis.config.PackageConfigTypes" id="modelPackageConfigTypes">
+  <bean class="com.richcoder.mybatis.config.PackageConfigTypes" id="entityPackageConfigTypes">
     <constructor-arg name="type" value="MODEL" type="java.lang.String"/>
     <constructor-arg name="packageConfigTypeSet">
       <set>
         <bean class="com.richcoder.mybatis.config.PackageConfigType">
-          <property name="aliasType" value="modelPackage"/>
-          <property name="targetDir" value="/model"/>
-          <property name="fileNameSuffix" value="Model.java"/>
-          <property name="template" value="domain_model.vm"/>
+          <property name="aliasType" value="entityPackage"/>
+          <property name="targetDir" value="/entity"/>
+          <property name="fileNameSuffix" value="Entity.java"/>
+          <property name="template" value="domain_entity.vm"/>
+        </bean>
+      </set>
+    </constructor-arg>
+  </bean>
+
+
+  <bean class="com.richcoder.mybatis.config.PackageConfigTypes" id="resPackageConfigTypes">
+    <constructor-arg name="type" value="RES" type="java.lang.String"/>
+    <constructor-arg name="packageConfigTypeSet">
+      <set>
+        <bean class="com.richcoder.mybatis.config.PackageConfigType">
+          <property name="aliasType" value="resPackage"/>
+          <property name="targetDir" value="/res"/>
+          <property name="fileNameSuffix" value="Res.java"/>
+          <property name="template" value="domain_res.vm"/>
         </bean>
       </set>
     </constructor-arg>
@@ -83,8 +98,11 @@
     </constructor-arg>
   </bean>
 
-  <bean class="com.richcoder.mybatis.generator.impl.ModelGeneratorImpl" id="modelGenerator">
-    <property name="packageConfigTypes" ref="modelPackageConfigTypes"/>
+  <bean class="com.richcoder.mybatis.generator.impl.EntityGeneratorImpl" id="entityGenerator">
+    <property name="packageConfigTypes" ref="entityPackageConfigTypes"/>
+  </bean>
+  <bean class="com.richcoder.mybatis.generator.impl.ResGeneratorImpl" id="resGenerator">
+    <property name="packageConfigTypes" ref="resPackageConfigTypes"/>
   </bean>
   <bean class="com.richcoder.mybatis.generator.impl.MapperGeneratorImpl" id="mapperGenerator">
     <property name="packageConfigTypes" ref="mapperPackageConfigTypes"/>
@@ -102,7 +120,8 @@
   <bean class="com.richcoder.mybatis.generator.base.GeneratorFactoryImpl" id="generatorFactory">
     <property name="generatorSet">
       <set>
-        <bean parent="modelGenerator"/>
+        <bean parent="entityGenerator"/>
+        <bean parent="resGenerator"/>
         <bean parent="mapperGenerator"/>
         <bean parent="mapperConfigGenerator"/>
         <bean parent="resultGenerator"/>

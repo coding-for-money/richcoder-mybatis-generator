@@ -4,7 +4,7 @@
 
 <mapper namespace="${mapperPackage}.${upClassName}${mapperPackageFileSuffix}">
 
-  <resultMap id="BaseResultMap" type="${modelPackage}.${upClassName}${modelPackageFileSuffix}">
+  <resultMap id="BaseResultMap" type="${entityPackage}.${upClassName}${entityPackageFileSuffix}">
       #foreach($resultMapColumn in $resultMapColumns)
         $resultMapColumn
 #end
@@ -39,7 +39,7 @@
   </sql>
 
   <insert id="insertSelective"
-          parameterType="${modelPackage}.${upClassName}${modelPackageFileSuffix}"
+          parameterType="${entityPackage}.${upClassName}${entityPackageFileSuffix}"
           useGeneratedKeys="true" keyProperty="${normalPrimaryKey}">
     INSERT INTO
     <include refid="Table_Name"/>
@@ -75,7 +75,7 @@
 
 
   <update id="updateByPrimaryKeySelective"
-          parameterType="${modelPackage}.${upClassName}${modelPackageFileSuffix}">
+          parameterType="${entityPackage}.${upClassName}${entityPackageFileSuffix}">
     UPDATE
     <include refid="Table_Name"/>
     <set>
@@ -87,7 +87,7 @@
   </update>
 
   <select id="selectByPrimaryKeySelective" resultMap="BaseResultMap"
-          parameterType="${modelPackage}.${upClassName}${modelPackageFileSuffix}">
+          parameterType="${entityPackage}.${upClassName}${entityPackageFileSuffix}">
     SELECT
     <include refid="Base_Column_List"/>
     FROM
@@ -96,7 +96,7 @@
   </select>
 
   <select id="queryList" resultMap="BaseResultMap"
-          parameterType="${modelPackage}.${upClassName}${modelPackageFileSuffix}">
+          parameterType="${entityPackage}.${upClassName}${entityPackageFileSuffix}">
     SELECT
     <include refid="Base_Column_List"/>
     FROM
@@ -106,7 +106,7 @@
   </select>
 
   <select id="listPageSelective" resultMap="BaseResultMap"
-          parameterType="${modelPackage}.${upClassName}${modelPackageFileSuffix}">
+          parameterType="${entityPackage}.${upClassName}${entityPackageFileSuffix}">
     SELECT
     <include refid="Base_Column_List"/>
     FROM
@@ -117,7 +117,7 @@
   </select>
 
   <select id="countSelective" resultType="java.lang.Integer"
-          parameterType="${modelPackage}.${upClassName}${modelPackageFileSuffix}">
+          parameterType="${entityPackage}.${upClassName}${entityPackageFileSuffix}">
     SELECT
     COUNT(*)
     FROM
@@ -126,7 +126,7 @@
   </select>
 
   <delete id="deleteByPrimaryKeySelective"
-          parameterType="${modelPackage}.${upClassName}${modelPackageFileSuffix}">
+          parameterType="${entityPackage}.${upClassName}${entityPackageFileSuffix}">
     DELETE FROM
     <include refid="Table_Name"/>
     <include refid="PrimaryKeyQuery_Where_Column_List"/>

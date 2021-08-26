@@ -12,7 +12,7 @@ import org.apache.velocity.VelocityContext;
 /**
  * 功能描述：Model代码生成
  */
-public class ModelGeneratorImpl extends BaseGeneratorImpl {
+public class EntityGeneratorImpl extends BaseGeneratorImpl {
 
   @Override
   public void initVelocityContext(VelocityContext velocityContext,
@@ -41,7 +41,7 @@ public class ModelGeneratorImpl extends BaseGeneratorImpl {
     velocityContext
         .put("methods", generateGetAndSetMethods(colMap, generatorContext.getProperties()));
     velocityContext
-        .put("fields", generateFields(colMap, columnRemarkMap, generatorContext.getProperties()));
+        .put("fields", generateFields(colMap, columnRemarkMap, generatorContext.getProperties(),"entity"));
     velocityContext.put("importSets", importSets);
   }
 }

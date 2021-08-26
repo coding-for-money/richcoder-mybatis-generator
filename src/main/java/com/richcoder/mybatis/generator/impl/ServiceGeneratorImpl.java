@@ -51,7 +51,7 @@ public class ServiceGeneratorImpl extends BaseGeneratorImpl {
     velocityContext
         .put("methods", generateGetAndSetMethods(colMap, generatorContext.getProperties()));
     velocityContext
-        .put("fields", generateFields(colMap, columnRemarkMap, generatorContext.getProperties()));
+        .put("fields", generateFields(colMap, columnRemarkMap, generatorContext.getProperties(), "entity/res/reqPage"));
     velocityContext.put("importSets", importSets);
     velocityContext
         .put("convertDomains", getCovertDomainFields(colMap, generatorContext.getProperties()));
@@ -65,10 +65,10 @@ public class ServiceGeneratorImpl extends BaseGeneratorImpl {
       StringBuilder sb = new StringBuilder();
       String field = GeneratorStringUtils.format(key, properties);
       sb.append(velocityContext.get("lowClassName"))
-          .append("Convert")
-          .append(".set" + GeneratorStringUtils.firstUpperNoFormat(field) + "(")
-          .append(velocityContext.get("lowClassName"))
-          .append(".get" + GeneratorStringUtils.firstUpperNoFormat(field) + "())");
+        .append("Convert")
+        .append(".set" + GeneratorStringUtils.firstUpperNoFormat(field) + "(")
+        .append(velocityContext.get("lowClassName"))
+        .append(".get" + GeneratorStringUtils.firstUpperNoFormat(field) + "())");
       converts.add(sb.toString());
     }
     return converts;
@@ -81,10 +81,10 @@ public class ServiceGeneratorImpl extends BaseGeneratorImpl {
       StringBuilder sb = new StringBuilder();
       String field = GeneratorStringUtils.format(key, properties);
       sb.append(velocityContext.get("lowClassName"))
-          .append(".set" + GeneratorStringUtils.firstUpperNoFormat(field) + "(")
-          .append(velocityContext.get("lowClassName"))
-          .append(properties.get("generator.domain.suffix"))
-          .append(".get" + GeneratorStringUtils.firstUpperNoFormat(field) + "())");
+        .append(".set" + GeneratorStringUtils.firstUpperNoFormat(field) + "(")
+        .append(velocityContext.get("lowClassName"))
+        .append(properties.get("generator.domain.suffix"))
+        .append(".get" + GeneratorStringUtils.firstUpperNoFormat(field) + "())");
       converts.add(sb.toString());
     }
     return converts;

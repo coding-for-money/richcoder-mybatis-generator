@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ${resultPackage}.Result;
 import ${servicePackage}.${upClassName}Service;
-import ${modelPackage}.${upClassName}${modelPackageFileSuffix};
+import ${entityPackage}.${upClassName}${entityPackageFileSuffix};
 import ${mapperPackage}.${upClassName}${mapperPackageFileSuffix};
 import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
@@ -19,37 +19,37 @@ private final static Logger LOG = LoggerFactory.getLogger(${upClassName}ServiceI
 private ${upClassName}${mapperPackageFileSuffix} ${lowClassName}${mapperPackageFileSuffix};
 
 @Override
-public Result add${upClassName}(${upClassName}${modelPackageFileSuffix} ${lowClassName}${modelPackageFileSuffix}) throws Exception {
+public Result add${upClassName}(${upClassName}${entityPackageFileSuffix} ${lowClassName}${entityPackageFileSuffix}) throws Exception {
 return null;
 }
 
 @Override
-public Result update${upClassName}(${upClassName}${modelPackageFileSuffix} ${lowClassName}${modelPackageFileSuffix}) throws Exception {
+public Result update${upClassName}(${upClassName}${entityPackageFileSuffix} ${lowClassName}${entityPackageFileSuffix}) throws Exception {
 return null;
 }
 
 @Override
-public Result findDetail${upClassName}(${upClassName}${modelPackageFileSuffix} ${lowClassName}${modelPackageFileSuffix}) throws Exception{
+public Result findDetail${upClassName}(${upClassName}${entityPackageFileSuffix} ${lowClassName}${entityPackageFileSuffix}) throws Exception{
 return null;
 }
 
 @Override
-public Result list${upClassName}(${upClassName}${modelPackageFileSuffix} ${lowClassName}${modelPackageFileSuffix}) throws Exception{
+public Result list${upClassName}(${upClassName}${entityPackageFileSuffix} ${lowClassName}${entityPackageFileSuffix}) throws Exception{
 return null;
 }
 
 @Override
-public Result list${upClassName}Page(${upClassName}${modelPackageFileSuffix} ${lowClassName}${modelPackageFileSuffix}) throws Exception{
+public Result list${upClassName}Page(${upClassName}${entityPackageFileSuffix} ${lowClassName}${entityPackageFileSuffix}) throws Exception{
 return null;
 }
 
 @Override
-public Result count${upClassName}(${upClassName}${modelPackageFileSuffix} ${lowClassName}${modelPackageFileSuffix}) throws Exception{
+public Result count${upClassName}(${upClassName}${entityPackageFileSuffix} ${lowClassName}${entityPackageFileSuffix}) throws Exception{
 return null;
 }
 
 @Override
-public Result delete${upClassName}(${upClassName}${modelPackageFileSuffix} ${lowClassName}${modelPackageFileSuffix}) throws Exception{
+public Result delete${upClassName}(${upClassName}${entityPackageFileSuffix} ${lowClassName}${entityPackageFileSuffix}) throws Exception{
 return null;
 }
 
