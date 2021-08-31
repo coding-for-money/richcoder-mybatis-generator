@@ -1,135 +1,159 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="${mapperPackage}.${upClassName}${mapperPackageFileSuffix}">
 
-  <resultMap id="BaseResultMap" type="${entityPackage}.${upClassName}${entityPackageFileSuffix}">
-      #foreach($resultMapColumn in $resultMapColumns)
+    <resultMap id="BaseResultMap" type="${entityPackage}.${upClassName}${entityPackageFileSuffix}">
+        #foreach($resultMapColumn in $resultMapColumns)
         $resultMapColumn
 #end
-  </resultMap>
+    </resultMap>
 
-  <sql id="Table_Name">
-      ${tableName}
-  </sql>
+    <sql id="Table_Name">
+        ${tableName}
+    </sql>
 
-  <sql id="Base_Column_List">
-      ${fields}
-  </sql>
+    <sql id="Base_Column_List">
+        ${fields}
+    </sql>
 
-  <sql id="Query_Where_Column_List">
-    <trim prefix="WHERE" prefixOverrides="AND|OR">
-        #foreach($whereCondition in $whereConditions)
+    <sql id="Query_Where_Column_List">
+        <trim prefix="WHERE" prefixOverrides="AND|OR">
+            #foreach($whereCondition in $whereConditions)
             $whereCondition
 #end
-    </trim>
-  </sql>
+        </trim>
+    </sql>
 
-  <sql id="PrimaryKeyQuery_Where_Column_List">
-    WHERE ${columnPrimaryKey} = #{${normalPrimaryKey}}
-  </sql>
+    <sql id="PrimaryKeyQuery_Where_Column_List">
+        WHERE ${columnPrimaryKey} = #{${normalPrimaryKey}}
+    </sql>
 
-  <sql id="Order_Column_List">
+    <sql id="Order_Column_List">
 
-  </sql>
+    </sql>
 
-  <sql id="Query_Page_Limit">
+    <sql id="Query_Page_Limit">
 
-  </sql>
+    </sql>
 
-  <insert id="insertSelective"
-          parameterType="${entityPackage}.${upClassName}${entityPackageFileSuffix}"
-          useGeneratedKeys="true" keyProperty="${normalPrimaryKey}">
-    INSERT INTO
-    <include refid="Table_Name"/>
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-        #foreach($insertColsCondition in $insertColsConditions)
+    <insert id="insertSelective"
+            parameterType="${entityPackage}.${upClassName}${entityPackageFileSuffix}"
+            useGeneratedKeys="true" keyProperty="${normalPrimaryKey}">
+        INSERT INTO
+        <include refid="Table_Name"/>
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            #foreach($insertColsCondition in $insertColsConditions)
             $insertColsCondition
 #end
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-        #foreach($insertValueCondition in $insertValueConditions)
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            #foreach($insertValueCondition in $insertValueConditions)
             $insertValueCondition
 #end
-    </trim>
-  </insert>
+        </trim>
+    </insert>
 
-  <insert id="batchInsert"
-          useGeneratedKeys="true" keyProperty="${normalPrimaryKey}">
-    INSERT INTO
-    <include refid="Table_Name"/>
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-        #foreach($insertColsCondition in $batchInsertColsConditions)
+    <insert id="batchInsert"
+            useGeneratedKeys="true" keyProperty="${normalPrimaryKey}">
+        INSERT INTO
+        <include refid="Table_Name"/>
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            #foreach($insertColsCondition in $batchInsertColsConditions)
             $insertColsCondition
 #end
-    </trim>
-    values
-    <foreach collection="list" item="item" separator="," close=")" open="(">
-        #foreach($insertValueCondition in $batchInsertValueConditions)
+        </trim>
+        values
+        <foreach collection="list" item="item" separator="," close=")" open="(">
+            #foreach($insertValueCondition in $batchInsertValueConditions)
             $insertValueCondition
 #end
-    </foreach>
+        </foreach>
 
-  </insert>
+    </insert>
 
 
-  <update id="updateByPrimaryKeySelective"
-          parameterType="${entityPackage}.${upClassName}${entityPackageFileSuffix}">
-    UPDATE
-    <include refid="Table_Name"/>
-    <set>
-        #foreach($updateCondition in $updateConditions)
+    <update id="updateByPrimaryKeySelective"
+            parameterType="${entityPackage}.${upClassName}${entityPackageFileSuffix}">
+        UPDATE
+        <include refid="Table_Name"/>
+        <set>
+            #foreach($updateCondition in $updateConditions)
             $updateCondition
 #end
-    </set>
-    <include refid="PrimaryKeyQuery_Where_Column_List"/>
-  </update>
+        </set>
+        <include refid="PrimaryKeyQuery_Where_Column_List"/>
+    </update>
 
-  <select id="selectByPrimaryKeySelective" resultMap="BaseResultMap"
-          parameterType="${entityPackage}.${upClassName}${entityPackageFileSuffix}">
-    SELECT
-    <include refid="Base_Column_List"/>
-    FROM
-    <include refid="Table_Name"/>
-    <include refid="PrimaryKeyQuery_Where_Column_List"/>
-  </select>
+    <select id="queryByPrimaryKey" resultMap="BaseResultMap">
+        select * from
+        <include refid="Table_Name"/>
+        where
+        <include refid="PrimaryKeyQuery_Where_Column_List"/>
+    </select>
 
-  <select id="queryList" resultMap="BaseResultMap"
-          parameterType="${entityPackage}.${upClassName}${entityPackageFileSuffix}">
-    SELECT
-    <include refid="Base_Column_List"/>
-    FROM
-    <include refid="Table_Name"/>
-    <include refid="Query_Where_Column_List"/>
-    <include refid="Order_Column_List"/>
-  </select>
+    <delete id="deleteByPrimaryKey">
+        delete from
+        <include refid="Table_Name"/>
+        where
+        <include refid="PrimaryKeyQuery_Where_Column_List"/>
+    </delete>
 
-  <select id="listPageSelective" resultMap="BaseResultMap"
-          parameterType="${entityPackage}.${upClassName}${entityPackageFileSuffix}">
-    SELECT
-    <include refid="Base_Column_List"/>
-    FROM
-    <include refid="Table_Name"/>
-    <include refid="Query_Where_Column_List"/>
-    <include refid="Order_Column_List"/>
-    <include refid="Query_Page_Limit"/>
-  </select>
+    <select id="selectByPrimaryKeySelective" resultMap="BaseResultMap"
+            parameterType="${entityPackage}.${upClassName}${entityPackageFileSuffix}">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM
+        <include refid="Table_Name"/>
+        <include refid="PrimaryKeyQuery_Where_Column_List"/>
+    </select>
 
-  <select id="countSelective" resultType="java.lang.Integer"
-          parameterType="${entityPackage}.${upClassName}${entityPackageFileSuffix}">
-    SELECT
-    COUNT(*)
-    FROM
-    <include refid="Table_Name"/>
-    <include refid="Query_Where_Column_List"/>
-  </select>
+    <select id="queryList" resultMap="BaseResultMap"
+            parameterType="${entityPackage}.${upClassName}${entityPackageFileSuffix}">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM
+        <include refid="Table_Name"/>
+        <include refid="Query_Where_Column_List"/>
+        <include refid="Order_Column_List"/>
+    </select>
 
-  <delete id="deleteByPrimaryKeySelective"
-          parameterType="${entityPackage}.${upClassName}${entityPackageFileSuffix}">
-    DELETE FROM
-    <include refid="Table_Name"/>
-    <include refid="PrimaryKeyQuery_Where_Column_List"/>
-  </delete>
+    <select id="listPageSelective" resultMap="BaseResultMap"
+            parameterType="${entityPackage}.${upClassName}${entityPackageFileSuffix}">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM
+        <include refid="Table_Name"/>
+        <include refid="Query_Where_Column_List"/>
+        <include refid="Order_Column_List"/>
+        <include refid="Query_Page_Limit"/>
+    </select>
+
+    <select id="queryPage" resultMap="BaseResultMap"
+            parameterType="${entityPackage}.${upClassName}${entityPackageFileSuffix}">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM
+        <include refid="Table_Name"/>
+        <include refid="Query_Where_Column_List"/>
+        <include refid="Order_Column_List"/>
+    </select>
+
+    <select id="countSelective" resultType="java.lang.Integer"
+            parameterType="${entityPackage}.${upClassName}${entityPackageFileSuffix}">
+        SELECT
+        COUNT(*)
+        FROM
+        <include refid="Table_Name"/>
+        <include refid="Query_Where_Column_List"/>
+    </select>
+
+    <delete id="deleteByPrimaryKeySelective"
+            parameterType="${entityPackage}.${upClassName}${entityPackageFileSuffix}">
+        DELETE FROM
+        <include refid="Table_Name"/>
+        <include refid="PrimaryKeyQuery_Where_Column_List"/>
+    </delete>
 
 </mapper>

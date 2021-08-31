@@ -4,6 +4,8 @@ import java.util.List;
 
 import ${entityPackage}.${upClassName}${entityPackageFileSuffix};
 import org.springframework.stereotype.Repository;
+import com.github.pagehelper.Page;
+
 
 ${classTitle}
 @Repository
@@ -25,5 +27,10 @@ Integer countSelective(${upClassName}${entityPackageFileSuffix} ${lowClassName}$
 
 Integer deleteByPrimaryKeySelective(${upClassName}${entityPackageFileSuffix} ${lowClassName}${entityPackageFileSuffix});
 
+${upClassName}${entityPackageFileSuffix} queryByPrimaryKey(Long id);
+
+void deleteByPrimaryKey(Long id);
+
+Page<${upClassName}${entityPackageFileSuffix}> queryPage(${upClassName}${entityPackageFileSuffix} ${lowClassName}${entityPackageFileSuffix});
 
 }

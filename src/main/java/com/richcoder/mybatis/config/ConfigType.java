@@ -3,6 +3,8 @@ package com.richcoder.mybatis.config;
 public enum ConfigType {
   ENTITY("entity"),
   RES("res"),
+  ADD("add"),
+  UPDATE("update"),
 
   MAPPER("mapper"),
 
