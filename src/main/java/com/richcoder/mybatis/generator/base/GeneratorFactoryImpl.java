@@ -3,6 +3,7 @@ package com.richcoder.mybatis.generator.base;
 import com.richcoder.mybatis.generator.Generator;
 import com.richcoder.mybatis.start.DefaultGeneratorStarter;
 import com.richcoder.mybatis.start.PluginGeneratorStarter;
+
 import java.util.Set;
 
 /**
@@ -10,22 +11,22 @@ import java.util.Set;
  */
 public class GeneratorFactoryImpl {
 
-  /**
-   * 生成器集合
-   */
-  private Set<Generator> generatorSet;
+    /**
+     * 生成器集合
+     */
+    private Set<Generator> generatorSet;
 
-  public void setGeneratorSet(Set<Generator> generatorSet) {
-    this.generatorSet = generatorSet;
-  }
+    public void setGeneratorSet(Set<Generator> generatorSet) {
+        this.generatorSet = generatorSet;
+    }
 
-  public void defaultGeneratorStarter() {
-    DefaultGeneratorStarter defaultGeneratorStarter = new DefaultGeneratorStarter();
-    defaultGeneratorStarter.start(generatorSet);
-  }
+    public void defaultGeneratorStarter() {
+        DefaultGeneratorStarter defaultGeneratorStarter = new DefaultGeneratorStarter();
+        defaultGeneratorStarter.start(generatorSet);
+    }
 
-  public void pluginGeneratorStarter() {
-    PluginGeneratorStarter pluginGeneratorStarter = new PluginGeneratorStarter();
-    pluginGeneratorStarter.start(generatorSet);
-  }
+    public void pluginGeneratorStarter() {
+        PluginGeneratorStarter pluginGeneratorStarter = new PluginGeneratorStarter();
+        pluginGeneratorStarter.start(generatorSet);
+    }
 }
