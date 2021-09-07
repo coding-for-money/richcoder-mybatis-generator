@@ -108,7 +108,7 @@ public class MapperGeneratorImpl extends BaseGeneratorImpl {
                 batchInsertValueConditions.add("now(),");
             } else {
                 StringBuilder conditionValueBf = new StringBuilder();
-                conditionValueBf.append(String.format("\t\t\t\t#{%s},", "item" + field)).append(LINE);
+                conditionValueBf.append(String.format("\t\t\t\t#{%s},", "item." + field)).append(LINE);
                 batchInsertValueConditions.add(conditionValueBf.toString());
             }
             StringBuilder conditionColBf = new StringBuilder();
