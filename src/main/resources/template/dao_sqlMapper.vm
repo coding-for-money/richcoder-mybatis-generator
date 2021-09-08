@@ -91,14 +91,12 @@
     <select id="queryByPrimaryKey" resultMap="BaseResultMap">
         select * from
         <include refid="Table_Name"/>
-        where
         <include refid="PrimaryKeyQuery_Where_Column_List"/>
     </select>
 
     <delete id="deleteByPrimaryKey">
         delete from
         <include refid="Table_Name"/>
-        where
         <include refid="PrimaryKeyQuery_Where_Column_List"/>
     </delete>
 
