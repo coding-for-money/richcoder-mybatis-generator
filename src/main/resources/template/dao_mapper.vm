@@ -1,36 +1,37 @@
-package ${mapperPackage};
+package ${mapperPackage} ;
 
 import java.util.List;
 
 import ${entityPackage}.${upClassName}${entityPackageFileSuffix};
 import org.springframework.stereotype.Repository;
 import com.github.pagehelper.Page;
-
+import java.util.Map;
+import ${entityPackage}.${upClassName}${resPackageFileSuffix};
+import com.huobi.finance.model.req.PageReq;
 
 ${classTitle}
 @Repository
 public interface ${upClassName}${mapperPackageFileSuffix} {
 
-Integer insertSelective(${upClassName}${entityPackageFileSuffix} ${lowClassName}${entityPackageFileSuffix});
+    Integer insertSelective(${upClassName}${entityPackageFileSuffix} ${lowClassName}${entityPackageFileSuffix});
 
-Integer batchInsert(List<${upClassName}${entityPackageFileSuffix}> list);
+    Integer batchInsert(List<${upClassName}${entityPackageFileSuffix}> list);
 
-Integer updateByPrimaryKeySelective(${upClassName}${entityPackageFileSuffix} ${lowClassName}${entityPackageFileSuffix});
+    Integer updateByPrimaryKeySelective(${upClassName}${entityPackageFileSuffix} ${lowClassName}${entityPackageFileSuffix});
 
-${upClassName}${entityPackageFileSuffix} selectByPrimaryKeySelective(${upClassName}${entityPackageFileSuffix} ${lowClassName}${entityPackageFileSuffix});
+    ${upClassName}${entityPackageFileSuffix} selectByPrimaryKeySelective(Long id);
 
-List<${upClassName}${entityPackageFileSuffix}> queryList(${upClassName}${entityPackageFileSuffix} ${lowClassName}${entityPackageFileSuffix});
+    List<${upClassName}${entityPackageFileSuffix}> queryList(Map<String , Object> map);
 
-List<${upClassName}${entityPackageFileSuffix}> listPageSelective(${upClassName}${entityPackageFileSuffix} ${lowClassName}${entityPackageFileSuffix});
 
-Integer countSelective(${upClassName}${entityPackageFileSuffix} ${lowClassName}${entityPackageFileSuffix});
+    Integer countSelective(${upClassName}${entityPackageFileSuffix} ${lowClassName}${entityPackageFileSuffix});
 
-Integer deleteByPrimaryKeySelective(${upClassName}${entityPackageFileSuffix} ${lowClassName}${entityPackageFileSuffix});
+    Integer deleteByPrimaryKeySelective(${upClassName}${entityPackageFileSuffix} ${lowClassName}${entityPackageFileSuffix});
 
-${upClassName}${entityPackageFileSuffix} queryByPrimaryKey(Long id);
+    ${upClassName}${entityPackageFileSuffix} queryByPrimaryKey(Long id);
 
-void deleteByPrimaryKey(Long id);
+    void deleteByPrimaryKey(Long id);
 
-Page<${upClassName}${entityPackageFileSuffix}> queryPage(${upClassName}${entityPackageFileSuffix} ${lowClassName}${entityPackageFileSuffix});
+    Page<${upClassName}${entityPackageFileSuffix}> queryPage(PageReq<${upClassName}${resPackageFileSuffix}> req);
 
 }

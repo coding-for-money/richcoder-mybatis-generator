@@ -100,8 +100,7 @@
         <include refid="PrimaryKeyQuery_Where_Column_List"/>
     </delete>
 
-    <select id="selectByPrimaryKeySelective" resultMap="BaseResultMap"
-            parameterType="${entityPackage}.${upClassName}${entityPackageFileSuffix}">
+    <select id="selectByPrimaryKeySelective" resultMap="BaseResultMap" >
         SELECT
         <include refid="Base_Column_List"/>
         FROM
@@ -109,8 +108,7 @@
         <include refid="PrimaryKeyQuery_Where_Column_List"/>
     </select>
 
-    <select id="queryList" resultMap="BaseResultMap"
-            parameterType="${entityPackage}.${upClassName}${entityPackageFileSuffix}">
+    <select id="queryList" resultMap="BaseResultMap" >
         SELECT
         <include refid="Base_Column_List"/>
         FROM
@@ -119,19 +117,9 @@
         <include refid="Order_Column_List"/>
     </select>
 
-    <select id="listPageSelective" resultMap="BaseResultMap"
-            parameterType="${entityPackage}.${upClassName}${entityPackageFileSuffix}">
-        SELECT
-        <include refid="Base_Column_List"/>
-        FROM
-        <include refid="Table_Name"/>
-        <include refid="Query_Where_Column_List"/>
-        <include refid="Order_Column_List"/>
-        <include refid="Query_Page_Limit"/>
-    </select>
 
-    <select id="queryPage" resultMap="BaseResultMap"
-            parameterType="${entityPackage}.${upClassName}${entityPackageFileSuffix}">
+
+    <select id="queryPage" resultMap="BaseResultMap" >
         SELECT
         <include refid="Base_Column_List"/>
         FROM
